@@ -14,7 +14,7 @@ def caesar_cipher(string="hello there", shift=0)
 
     codepoints_array = encrypt_string.codepoints
 
-    new_array = codepoints_array.map { |character| 
+    new_array = codepoints_array.map do |character| 
         if character.between?(65, 90) # uppercase letter
             character_shift(character, 65, shift)
         elsif character.between?(97, 122) # lowercase letter
@@ -22,11 +22,10 @@ def caesar_cipher(string="hello there", shift=0)
         else #not a letter
             character
         end
-    }
+    end
 
     new_array.each { |letter| new_string.concat(letter) }
     puts "The original string was \"#{encrypt_string}\", and the new string is \"#{new_string}\"."
-    # p new_string
 end
 
 caesar_cipher
